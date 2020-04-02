@@ -1,0 +1,2 @@
+class TeamTag < ApplicationRecord
+end
