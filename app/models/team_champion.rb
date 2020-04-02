@@ -1,0 +1,2 @@
+class TeamChampion < ApplicationRecord
+end
