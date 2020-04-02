@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  skype: MyString
+  discord: MyString
+  password: MyString
+  summoner_name: MyString
+  game_type: MyString
+  rank_id: 1
+  champion_id: 1
+
+two:
+  title: MyString
+  body: MyText
+  skype: MyString
+  discord: MyString
+  password: MyString
+  summoner_name: MyString
+  game_type: MyString
+  rank_id: 1
+  champion_id: 1
