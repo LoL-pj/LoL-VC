@@ -1,0 +1,15 @@
+current directory: /Users/a-33/lol-vc/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/a-33/.rbenv/versions/2.6.3/bin/ruby -I /Users/a-33/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20200403-41974-c3uaty.rb extconf.rb
+creating Makefile
+
+current directory: /Users/a-33/lol-vc/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/a-33/lol-vc/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/a-33/lol-vc/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20200403-41974-14l4sy8/skiptrace/internal
