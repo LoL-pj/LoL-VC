@@ -12,12 +12,12 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(teams_params)
+    @team = Team.new(team_params)
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @tema, notice: '募集しました' }
-        format.json { render :show, status: :created, location: @tema }
+        format.html { redirect_to @team, notice: '募集しました' }
+        format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
         format.json { render json: @team.errors, status: :unprocessable_entity }
@@ -35,6 +35,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(resources :teams)
+    params.require(:team).permit(:title, :summoner_name, :game_type, :discord, :skype, :body, :password)
   end
 end
