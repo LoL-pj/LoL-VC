@@ -1,4 +1,6 @@
-<a href= '/teams/new' class="waves-effect waves-light btn-large">募集する</a>
+<div class="col s10 offset-s1 center-align">
+  <a href= '/teams/new' class="waves-effect waves-light btn-large">募集する</a>
+</div>
 
 <% @teams.each do |team| %>
   <div class="row">
@@ -9,7 +11,6 @@
           <img src="images/yuna.jpg" alt="" class="circle">
           <br>
           <span class="title">
-            <strong><%= t(:title) %></strong><br>
             <%= team.title %>
           </span>
           <span class="summoner_name"><br>
