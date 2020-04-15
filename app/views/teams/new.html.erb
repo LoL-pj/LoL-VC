@@ -4,7 +4,23 @@
   <%= f.label :summoner, t(:summoner) %>
   <%= f.text_field :summoner_name %>
   <%= f.label :game_type, t(:game_type) %>
-  <%= f.text_field :game_type %>
+  <br>
+  <label>
+    <input type="checkbox" class="filled-in" checked="checked" />
+    <span>Rank</span>
+  </label>
+  <label>
+    <input type="checkbox" class="filled-in" checked="checked" />
+    <span>Normal</span>
+  </label>
+  <label>
+    <input type="checkbox" class="filled-in" checked="checked" />
+    <span>Random</span>
+  </label>
+    <label>
+    <input type="checkbox" class="filled-in" checked="checked" />
+    <span>TFT</span>
+  </label>
   <br>
   <%= f.label :discord, t(:discord) %>
   <%= f.text_field :discord %>
