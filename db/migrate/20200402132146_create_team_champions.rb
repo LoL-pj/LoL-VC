@@ -1,8 +1,8 @@
 class CreateTeamChampions < ActiveRecord::Migration[6.0]
   def change
     create_table :team_champions do |t|
-      t.integer :team_id
-      t.integer :champion_id
+      t.references :team, foreign_key: true, null: false
+      t.references :champion, foreign_key: true, null: false
 
       t.timestamps
     end
