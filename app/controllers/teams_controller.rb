@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+    @ranks = Rank.all
   end
 
   def create
@@ -49,7 +50,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:title, :summoner_name, :game_type, :discord, :skype, :body, :password)
+    params.require(:team).permit(:title, :rank_id, :summoner_name, :game_type, :discord, :skype, :body, :password)
   end
 end
 
