@@ -1,0 +1,2 @@
+class TeamRank < ApplicationRecord
+end

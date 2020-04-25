@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_132147) do
+ActiveRecord::Schema.define(version: 2020_04_25_134356) do
 
   create_table "champions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -31,10 +31,21 @@ ActiveRecord::Schema.define(version: 2020_04_02_132147) do
   end
 
   create_table "team_champions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "team_id"
-    t.integer "champion_id"
+    t.bigint "team_id", null: false
+    t.bigint "champion_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["champion_id"], name: "index_team_champions_on_champion_id"
+    t.index ["team_id"], name: "index_team_champions_on_team_id"
+  end
+
+  create_table "team_ranks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "rank_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rank_id"], name: "index_team_ranks_on_rank_id"
+    t.index ["team_id"], name: "index_team_ranks_on_team_id"
   end
 
   create_table "team_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -52,18 +63,15 @@ ActiveRecord::Schema.define(version: 2020_04_02_132147) do
     t.string "summoner_name"
     t.string "skype"
     t.string "discord"
-    t.string "game_type"
     t.string "password", null: false
-    t.bigint "rank_id"
-    t.bigint "champion_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["champion_id"], name: "index_teams_on_champion_id"
-    t.index ["rank_id"], name: "index_teams_on_rank_id"
   end
 
+  add_foreign_key "team_champions", "champions"
+  add_foreign_key "team_champions", "teams"
+  add_foreign_key "team_ranks", "ranks"
+  add_foreign_key "team_ranks", "teams"
   add_foreign_key "team_tags", "tags"
   add_foreign_key "team_tags", "teams"
-  add_foreign_key "teams", "champions"
-  add_foreign_key "teams", "ranks"
 end
