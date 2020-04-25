@@ -6,10 +6,7 @@ class CreateTeams < ActiveRecord::Migration[6.0]
       t.string :summoner_name
       t.string :skype
       t.string :discord
-      t.string :game_type
       t.string :password, null: false
-      t.references :rank, foreign_key: true
-      t.references :champion, foreign_key: true
 
       t.timestamps
     end
