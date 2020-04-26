@@ -1,0 +1,26 @@
+.search-form
+  = form_with scope: :search, url: search_teams_path, method: :get do |f|
+    .field
+      = f.label :keyword
+      = f.text_field :keyword
+
+    .field
+      = f.collection_check_boxes :game_type_ids, GameType.all, :id, :name do |g|
+        = g.label do
+          = g.check_box
+          %span= g.text
+
+    .field
+      = f.collection_check_boxes :rank_ids, Rank.all, :id, :name do |r|
+        = r.label do
+          = r.check_box
+          %span= r.text
+
+    .field
+      = f.collection_check_boxes :champion_ids, Champion.all, :id, :name do |c|
+        = c.label do
+          = c.check_box
+          %span= c.text
+
+    .field
+      = f.submit 'Search', class: "waves-effect waves-light btn"
