@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title LolVc
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav
+      .nav-wrapper
+        %a.brand-logo{:href => "/"} LoLVC
+        %ul.right.hide-on-med-and-down
+          %li
+            %a{:href => "sass.html"}
+              %i.material-icons search
+          %li
+            %a{:href => "badges.html"}
+              %i.material-icons view_module
+          %li
+            %a{:href => "collapsible.html"}
+              %i.material-icons refresh
+          %li
+            %a{:href => "mobile.html"}
+              %i.material-icons more_vert
+    = yield
