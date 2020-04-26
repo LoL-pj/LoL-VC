@@ -6,34 +6,60 @@
           %img.circle{:alt => "", :src => "images/yuna.jpg"}/
           %br/
           %span.title
-            %strong= t(:title)
-            %br/
             = @team.title
+
+          %br/
+          %span.rank
+            %br/
+            %strong= t(:rank)
+            %br/
+            - @ranks.each do |r|
+              .chip
+                = r
+
+          %br/
           %span.summoner_name
             %br/
             %strong= t(:summoner_name)
             %br/
             = @team.summoner_name
+
+          %br/
           %span.game_type
             %br/
             %strong= t(:game_type)
             %br/
-            = @team.game_type
+            - @game_types.each do |g|
+              .chip
+                = g
+
+          %br/
+          %span.champions
+            %br/
+            %strong= t(:champion)
+            %br/
+            - @champions.each do |c|
+              .chip
+                = c
+
+          %br/
           %span.discord
             %br/
             %strong= t(:discord)
             %br/
             = @team.discord
+
+          %br/
           %span.skype
             %br/
             %strong= t(:skype)
             %br/
             = @team.skype
+
+          %br/
           %span.body
-            %br/
-            %strong= t(:body)
-            %br/
             = @team.body
+
           .card-action
             = link_to"編集", edit_team_path
             = link_to"削除", @team, method: :delete

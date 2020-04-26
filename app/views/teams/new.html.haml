@@ -5,17 +5,29 @@
   = f.label :rank_id
   %br/
   = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
-    = r.label { r.check_box + r.text }
+    = r.label do
+      = r.check_box
+      %span= r.text
 
   %br/
   = f.label :summoner, t(:summoner)
   = f.text_field :summoner_name
+
   = f.label :game_type, t(:game_type)
   %br/
-  - game_type = %w(Normal Rank Random TFT)
-  - game_type.each do |g|
-    = f.check_box :game_type, {multiple: true}, g, nil
-    %span= f.label :game_type, g
+  = f.collection_check_boxes :game_type_ids, @game_types, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
+  %br/
+  = f.label :champion, t(:champion)
+  %br/
+  = f.collection_check_boxes :champion_ids, @champions, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
   %br/
   = f.label :discord, t(:discord)
   = f.text_field :discord

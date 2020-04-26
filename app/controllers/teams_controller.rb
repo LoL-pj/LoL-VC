@@ -3,14 +3,31 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    @game_types = GameType.all
+    @ranks = Rank.all
+    @champions = Champion.all
+
   end
 
   def show
+    @champions = @team.champion_ids.map do |c|
+      Champion.find(c).name
+    end
+
+    @game_types = @team.game_type_ids.map do |c|
+      GameType.find(c).name
+    end
+
+    @ranks = @team.rank_ids.map do |r|
+      Rank.find(r).name
+    end
   end
 
   def new
     @team = Team.new
     @ranks = Rank.all
+    @game_types = GameType.all
+    @champions = Champion.all
   end
 
   def create
@@ -28,6 +45,9 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @ranks = Rank.all
+    @game_types = GameType.all
+    @champions = Champion.all
   end
 
   def update
@@ -50,7 +70,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:title, :rank_id, :summoner_name, :game_type, :discord, :skype, :body, :password)
+    params.require(:team).permit(:title, :summoner_name, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [])
   end
 end
 

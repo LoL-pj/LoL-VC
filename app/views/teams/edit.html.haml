@@ -1,10 +1,33 @@
 = form_for @team, url: {controller: "teams", action: "update"}, html: {class: "team_form"} do |f|
   = f.label :title, t(:title)
   = f.text_field :title
+
+  = f.label :rank_id
+  %br/
+  = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
+  %br/
   = f.label :summoner, t(:summoner)
   = f.text_field :summoner_name
+
   = f.label :game_type, t(:game_type)
-  = f.text_field :game_type
+  %br/
+  = f.collection_check_boxes :game_type_ids, @game_types, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
+  %br/
+  = f.label :champion, t(:champion)
+  %br/
+  = f.collection_check_boxes :champion_ids, @champions, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
   %br/
   = f.label :discord, t(:discord)
   = f.text_field :discord
