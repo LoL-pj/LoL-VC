@@ -1,24 +1,27 @@
-# README
+## 環境構築
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 前提
+Dockerを使って立ち上げます。
 
-Things you may want to cover:
+### ビルド
+`docker-compose build`
 
-* Ruby version
+### 起動
+`docker-compose up`
 
-* System dependencies
+## Tips
 
-* Configuration
+### Rails console起動
+`docker-compose run web bundle exec rails c`
 
-* Database creation
+### DB Create
+`docker-compose run web bundle exec rails db:create`
 
-* Database initialization
+### DB Migration
+`docker-compose run web bundle exec rails db:migrate`
 
-* How to run the test suite
+CreateとMigrationを同時に行う場合
+`docker-compose run web bundle exec rails db:create db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### DB Seed
+`docker-compose run web bundle exec rails db:seed`
