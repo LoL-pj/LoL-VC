@@ -43,19 +43,21 @@
                 .chip
                   = @champions.find(c).name
 
-            %br/
-            %span.discord
+            - if team.discord?
               %br/
-              %strong= t(:discord)
-              %br/
-              = team.discord
+              %span.discord
+                %br/
+                %strong= t(:discord)
+                %br/
+                = team.discord
 
-            %br/
-            %span.skype
+            - if team.skype?
               %br/
-              %strong= t(:skype)
-              %br/
-              = team.skype
+              %span.skype
+                %br/
+                %strong= t(:skype)
+                %br/
+                = team.skype
 
             %br/
             %span.body
