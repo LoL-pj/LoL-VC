@@ -23,7 +23,7 @@
               %br/
               %strong= t(:summoner_name)
               %br/
-              = team.summoner_name
+              %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
             %br/
             %span.game_type
