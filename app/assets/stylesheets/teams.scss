@@ -1,3 +1,20 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.team-header {
+  padding-left: 75px;
+}
+
+.card {
+  position: relative;
+}
+
+ul.collection {
+  height: 800px;
+}
+
+.card-action {
+  position: absolute;
+  bottom: 0;
+}
