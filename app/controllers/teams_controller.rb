@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy, :search]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
     @teams = Team.all
@@ -69,7 +69,6 @@ class TeamsController < ApplicationController
   end
 
   def search
-    @search_params = team_search_params
     @teams = Team.search(@search_params)
   end
 
@@ -77,13 +76,13 @@ class TeamsController < ApplicationController
     params.require(:team).permit(:title, :summoner_name, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [])
   end
 
+  def set_team
+    @team = Team.find(params[:id])
+  end
+
   private
 
   def team_search_params
-    params.fetch(:search, {}).permit(:keyword, game_type_ids: [], rank_ids: [], champion_ids: [])
+    params.require(:search).permit(:keyword, { game_type_ids: [] }, { rank_ids: [] }, { champion_ids: [] })
   end
-end
-
-def set_team
-  @team = Team.find(params[:id])
 end
