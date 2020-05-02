@@ -69,7 +69,7 @@ class TeamsController < ApplicationController
   end
 
   def search
-    @teams = Team.search(@search_params)
+    @teams = Team.search(team_search_params)
   end
 
   def team_params
@@ -83,6 +83,6 @@ class TeamsController < ApplicationController
   private
 
   def team_search_params
-    params.require(:search).permit(:keyword, { game_type_ids: [] }, { rank_ids: [] }, { champion_ids: [] })
+    params.fetch(:search, {}).permit(:keyword, game_type_ids: [], rank_ids: [], champion_ids: [])
   end
 end
