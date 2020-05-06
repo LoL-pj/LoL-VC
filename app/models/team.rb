@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+  has_secure_password
   has_many :team_ranks
   has_many :team_game_types
   has_many :team_champions

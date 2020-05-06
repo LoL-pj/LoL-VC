@@ -42,7 +42,7 @@ class TeamsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @team.update(team_params)
+      if @team.authenticate(team_params[:password]) && @team.update(team_params)
         format.html { redirect_to @team, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @team }
       else
