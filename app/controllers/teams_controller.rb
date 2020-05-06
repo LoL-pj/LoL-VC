@@ -1,11 +1,8 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :get_all, only: [:index, :edit, :new, :search]
 
   def index
-    @teams = Team.all
-    @game_types = GameType.all
-    @ranks = Rank.all
-    @champions = Champion.all
   end
 
   def show
@@ -24,9 +21,6 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-    @ranks = Rank.all
-    @game_types = GameType.all
-    @champions = Champion.all
   end
 
   def create
@@ -44,9 +38,6 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @ranks = Rank.all
-    @game_types = GameType.all
-    @champions = Champion.all
   end
 
   def update
@@ -78,6 +69,13 @@ class TeamsController < ApplicationController
 
   def set_team
     @team = Team.find(params[:id])
+  end
+
+  def get_all
+    @teams = Team.all
+    @game_types = GameType.all
+    @ranks = Rank.all
+    @champions = Champion.all
   end
 
   private
