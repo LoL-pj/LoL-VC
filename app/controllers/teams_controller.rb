@@ -1,12 +1,8 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :get_all, only: [:index, :edit, :new, :search]
 
   def index
-    @teams = Team.all
-    @game_types = GameType.all
-    @ranks = Rank.all
-    @champions = Champion.all
-
   end
 
   def show
@@ -25,9 +21,6 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-    @ranks = Rank.all
-    @game_types = GameType.all
-    @champions = Champion.all
   end
 
   def create
@@ -45,9 +38,6 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @ranks = Rank.all
-    @game_types = GameType.all
-    @champions = Champion.all
   end
 
   def update
@@ -69,11 +59,28 @@ class TeamsController < ApplicationController
     end
   end
 
+  def search
+    @teams = Team.search(team_search_params)
+  end
+
   def team_params
     params.require(:team).permit(:title, :summoner_name, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [])
   end
-end
 
-def set_team
-  @team = Team.find(params[:id])
+  def set_team
+    @team = Team.find(params[:id])
+  end
+
+  def get_all
+    @teams = Team.all
+    @game_types = GameType.all
+    @ranks = Rank.all
+    @champions = Champion.all
+  end
+
+  private
+
+  def team_search_params
+    params.fetch(:search, {}).permit(:keyword, game_type_ids: [], rank_ids: [], champion_ids: [])
+  end
 end

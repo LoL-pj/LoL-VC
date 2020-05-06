@@ -1,0 +1,5 @@
+- if @teams.present?
+  %h5='検索結果'
+  = render 'teams', teams: @teams
+- else
+  %p= '該当の投稿はございませんでした'
