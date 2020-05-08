@@ -14,9 +14,7 @@ class Team < ApplicationRecord
   end
 
   scope :keyword_like, -> (keyword) { where('title LIKE ? OR body LIKE ?', "%#{keyword}%", "%#{keyword}%") if keyword.present? }
-  scope :game_type_like, -> (game_type) { joins(:game_types).where(game_types: {id: game_type}) if game_type.present? }
-  scope :rank_like, -> (rank) { joins(:ranks).where(ranks: {id: rank}) if rank.blank? }
-  scope :champion_like, -> (champion) { joins(:champions).where(champions: {id: champion}) if champion.blank? }
+  scope :game_type_like, -> (game_type) { joins(:game_types).where(game_types: {id: game_type}) if game_type[1].present? }
+  scope :rank_like, -> (rank) { joins(:ranks).where(ranks: {id: rank}) if rank[1].present? }
+  scope :champion_like, -> (champion) { joins(:champions).where(champions: {id: champion}) if champion[1].present? }
 end
-
-# SELECT `teams`.* FROM `teams` INNER JOIN `team_game_types` ON `team_game_types`.`team_id` = `teams`.`id` INNER JOIN `game_types` ON `game_types`.`id` = `team_game_types`.`game_type_id` WHERE `game_type`.`id` IN ('', '1')/
