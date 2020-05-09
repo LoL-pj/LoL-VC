@@ -39,6 +39,7 @@
   = f.password_field :password
 
   - if action == "create"
-    = f.submit "募集する",  class: "waves-effect waves-light btn"
+    = f.submit "募集する", class: "waves-effect waves-light btn"
   - else
     = f.submit "更新する", class: "waves-effect waves-light btn"
+    = f.submit "削除する", class: "waves-effect waves-light btn"
