@@ -41,21 +41,20 @@ class TeamsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to @team, notice: '更新しました' }
-        format.json { render :show, status: :ok, location: @team }
-      else
-        format.html { render :edit }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    if @team.authenticate(team_params[:password])
+      @team.update(team_params)
+      redirect_to @team, notice: '投稿を更新しました'
+    else
+      redirect_to edit_team_path, alert: 'パスワードが一致しません'
     end
   end
 
   def destroy
-    @team.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: '削除しました'}
+    if @team.authenticate(team_params[:password])
+      @team.destroy
+      redirect_to root_url, notice: '削除しました'
+    else
+      redirect_to edit_team_path, alert: 'パスワードが一致しません'
     end
   end
 
