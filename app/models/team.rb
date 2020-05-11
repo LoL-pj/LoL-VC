@@ -8,6 +8,10 @@ class Team < ApplicationRecord
   has_many :champions, through: :team_champions
   has_many :tags, through: :team_tags
 
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :summoner_name, presence: true
+
   scope :search, -> (search_params) do
     return if search_params.blank?
 
