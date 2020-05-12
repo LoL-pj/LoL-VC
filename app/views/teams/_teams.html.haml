@@ -1,12 +1,17 @@
 - @teams.each do |team|
-  .row
-    .col.s12.m5
-      .card.blue-grey.darken-1
-        %ul.collection
-          %li.collection-item.avatar
-            %br/
-            %span.title
+  .team
+    .listing-card-team
+      %ul.collection-team
+        %li.collection-team.avatar
+          .team-header
+            .team-title
               = team.title
+
+          .team-body
+            .summoner_name
+              %strong= t(:summoner_name)
+              %br/
+              %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
             %br/
             %span.rank
@@ -16,14 +21,6 @@
               - team.rank_ids.map do |r|
                 .chip
                   = @ranks.find(r).name
-
-
-            %br/
-            %span.summoner_name
-              %br/
-              %strong= t(:summoner_name)
-              %br/
-              %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
             %br/
             %span.game_type
