@@ -1,6 +1,6 @@
 = form_for @team, url: {controller: "teams", action: action }, html: {class: "team_form"} do |f|
   = f.label :title, t(:title)
-  = f.text_field :title
+  = f.text_field :title, placeholder:'タイトル'
 
   = f.label :rank_id
   %br/
@@ -10,8 +10,8 @@
       %span= r.text
 
   %br/
-  = f.label :summoner, t(:summoner)
-  = f.text_field :summoner_name
+  = f.label :summoner, t(:summoner_name)
+  = f.text_field :summoner_name, placeholder:'サモナー名'
 
   = f.label :game_type, t(:game_type)
   %br/
@@ -30,13 +30,13 @@
 
   %br/
   = f.label :discord, t(:discord)
-  = f.text_field :discord
+  = f.text_field :discord, placeholder:'Discord ID'
   = f.label :skype, t(:skype)
-  = f.text_field :skype
+  = f.text_field :skype, placeholder:'Skype ID'
   = f.label :body, t(:body)
-  = f.text_area :body
+  = f.text_area :body, placeholder:'メッセージ'
   = f.label :password, t(:password)
-  = f.password_field :password
+  = f.password_field :password, placeholder:'パスワード'
 
   - if action == "create"
     = f.submit "募集する", class: "waves-effect waves-light btn"
