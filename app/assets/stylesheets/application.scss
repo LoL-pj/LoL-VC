@@ -4,6 +4,16 @@
  *= require_self
 */
 @import 'materialize/components/color-variables';
-$primary-color: color("blue", 'lighten-2') !default;
-$secondary-color: color("white", 'base') !default;
+$primary-color: #061539 !default;
+$secondary-color: #208294 !default;
 @import 'materialize';
+
+@import 'shared/colors';
+
+html {
+  color: white;
+
+  body {
+    background-color: #7887AB;
+  }
+}

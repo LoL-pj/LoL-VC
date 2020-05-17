@@ -5,6 +5,7 @@
 .teams {
   display: flex;
   margin: 0 auto 15px;
+  padding: 0 55px;
   flex-wrap: wrap;
   .team {
     margin: 20px;
@@ -37,4 +38,22 @@
 
 .team-body {
   padding: 10px 20px;
+}
+
+.team_form {
+  padding: 25px 55px;
+
+  label {
+    color: white;
+    margin-right: 25px;
+
+    span:not(.lever) {
+      padding-left: 23px;
+
+      &:before {
+        border-color: white;
+        border-radius: 5px;
+      }
+    }
+  }
 }
