@@ -13,55 +13,46 @@
               %br/
               %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
-            %br/
-            %span.rank
-              %br/
-              %strong= t(:rank)
-              %br
-              - team.rank_ids.map do |r|
-                .chip
-                  = @ranks.find(r).name
+            .tags
+              .rank_label
+                %strong= t(:rank)
+              .rank_tags
+                - team.rank_ids.map do |r|
+                  .chip
+                    = @ranks.find(r).name
 
-            %br/
-            %span.game_type
-              %br/
-              %strong= t(:game_type)
-              %br
-              - team.game_type_ids.map do |g|
-                .chip
-                  = @game_types.find(g).name
+              .game_type_label
+                %strong= t(:game_type)
+              .game_type_tags
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
 
-            %br/
-            %span.champion
-              %br/
-              %strong= t(:champion)
-              %br
-              - team.champion_ids.map do |c|
-                .chip
-                  = @champions.find(c).name
+              .champion_label
+                %strong= t(:champion)
+              .champion_tags
+                - team.champion_ids.map do |c|
+                  .chip
+                    = @champions.find(c).name
 
             - if team.discord?
-              %br/
-              %span.discord
-                %br/
+              .discord_id
                 %strong= t(:discord)
                 %br/
                 = team.discord
 
             - if team.skype?
-              %br/
-              %span.skype
-                %br/
+              .skype_id
                 %strong= t(:skype)
                 %br/
                 = team.skype
 
-            %br/
-            %span.body
-              %br/
-              %strong= t(:body)
-              %br/
-              = team.body
+            .message
+              %span.body
+                %br/
+                %strong= t(:body)
+                %br/
+                = team.body
 
             .card-action
               = link_to"詳細", "teams/#{team.id}"
