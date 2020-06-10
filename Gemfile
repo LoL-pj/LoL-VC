@@ -8,7 +8,7 @@ gem 'rails', '~> 6.0.1'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Use JQuery for Materialize
 gem 'jquery-rails'
 # Use SCSS for stylesheets
