@@ -25,15 +25,12 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to @team, notice: '募集しました' }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    @team.profile_image << @team.profile_img(@team.summoner_name)
+    if @team.summoner_name.present?
+      @team.save
+      redirect_to @team, notice: '投稿しました'
+    else
+      redirect_to new_team_path, alert: 'SummonerNameを入力してください'
     end
   end
 

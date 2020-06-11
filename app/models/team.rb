@@ -1,4 +1,11 @@
+# frozen_string_literal: true
+require 'net/http'
+require 'uri'
+require 'json'
+
 class Team < ApplicationRecord
+  API_KEY = 'RGAPI-abc18254-19a3-4eee-a828-d0243559a545'
+
   has_secure_password
   has_many :team_ranks
   has_many :team_game_types
@@ -22,4 +29,13 @@ class Team < ApplicationRecord
   scope :game_type_like, -> (game_type) { joins(:game_types).where(game_types: {id: game_type}) if game_type[1].present? }
   scope :rank_like, -> (rank) { joins(:ranks).where(ranks: {id: rank}) if rank[1].present? }
   scope :champion_like, -> (champion) { joins(:champions).where(champions: {id: champion}) if champion[1].present? }
+
+	def profile_img(summoner_name)
+		binding.pry
+		uri = URI.parse("https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{API_KEY}")
+		binding.pry
+		return_data = Net::HTTP.get(uri)
+		summoner_data = JSON.parse(return_data)
+		summoner_data["profileIconId"]
+	end
 end
