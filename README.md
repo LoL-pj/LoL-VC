@@ -9,6 +9,8 @@ Dockerを使って立ち上げます。
 ### 起動
 `docker-compose up`
 
+localhost:3000 にアクセス
+
 ## Tips
 
 ### Rails console起動
