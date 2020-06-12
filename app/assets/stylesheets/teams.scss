@@ -1,3 +1,59 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.teams {
+  display: flex;
+  margin: 0 auto 15px;
+  padding: 0 55px;
+  flex-wrap: wrap;
+  .team {
+    margin: 20px;
+    .listing-card-team {
+      position: relative;
+      margin: 0.5rem 0 1rem 0;
+      width: 300px;
+    }
+  }
+}
+
+.collection-team {
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  .collection-team.avatar {
+    line-height: 1.5rem;
+  }
+}
+
+.team-header {
+  position: relative;
+  height: 3.75rem
+}
+
+.team-title {
+  padding: 20px;
+}
+
+.team-body {
+  padding: 10px 20px;
+}
+
+.team_form {
+  padding: 25px 55px;
+
+  label {
+    color: white;
+    margin-right: 25px;
+
+    span:not(.lever) {
+      padding-left: 23px;
+
+      &:before {
+        border-color: white;
+        border-radius: 5px;
+      }
+    }
+  }
+}

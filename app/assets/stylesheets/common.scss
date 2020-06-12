@@ -1,0 +1,22 @@
+.search-form {
+  padding: 25px 55px;
+  background-color: #4F628E;
+}
+
+.field {
+  padding: 10px 0;
+
+  label {
+    color: white;
+    margin-right: 25px;
+
+    span:not(.lever) {
+      padding-left: 23px;
+
+      &:before {
+        border-color: white;
+        border-radius: 5px;
+      }
+    }
+  }
+}
