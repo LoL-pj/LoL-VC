@@ -9,9 +9,9 @@ class Team < ApplicationRecord
   API_KEY = 'RGAPI-abc18254-19a3-4eee-a828-d0243559a545'
 
   has_secure_password
-  has_many :team_ranks
-  has_many :team_game_types
-  has_many :team_champions
+  has_many :team_ranks, dependent: :destroy
+  has_many :team_game_types, dependent: :destroy
+  has_many :team_champions, dependent: :destroy
   has_many :game_types, through: :team_game_types
   has_many :ranks, through: :team_ranks
   has_many :champions, through: :team_champions
