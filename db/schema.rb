@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_142622) do
+ActiveRecord::Schema.define(version: 2020_06_07_165324) do
+
   create_table "champions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_05_09_142622) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.integer "profile_image"
   end
 
   add_foreign_key "team_champions", "champions"
