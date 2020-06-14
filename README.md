@@ -27,3 +27,24 @@ CreateとMigrationを同時に行う場合
 
 ### DB Seed
 `docker-compose run web bundle exec rails db:seed`
+
+
+## Makefileを使う場合
+
+### ビルド
+`$ make build`
+
+### 起動
+`$ make start`
+
+### Rails console起動
+`$ make console`
+
+### DB Migration
+`$ make migration`
+
+### DB Create
+`$ make create`
+
+### DB Seed
+`$ make seed`
