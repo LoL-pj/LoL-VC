@@ -41,7 +41,7 @@ class TeamsController < ApplicationController
     if params[:update] && @team.authenticate(team_params[:password])
       @team.update(team_params)
       redirect_to @team, notice: '投稿を更新しました'
-    elsif params[:delete] && @team.authenticate(team_params[:password])
+    elsif params[:destroy] && @team.authenticate(team_params[:password])
       self.destroy
     else
       redirect_to edit_team_path, alert: 'パスワードが一致しません'
