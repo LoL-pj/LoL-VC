@@ -16,6 +16,7 @@ class Team < ApplicationRecord
   has_many :ranks, through: :team_ranks
   has_many :champions, through: :team_champions
   has_many :tags, through: :team_tags
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :body, presence: true
