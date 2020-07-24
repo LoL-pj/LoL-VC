@@ -61,4 +61,16 @@
             = @team.body
 
           .card-action
+            %li.comment-create
+              .text-left.title= 'レビュー'
+            %li#comments_area
+              = render partial: 'comments/index', locals: { comments: @comments }
+
+            %li.comment-create
+              .text-left= 'レビューを投稿する'
+            %li.comment_form
+              = render partial: 'comments/form', locals: { comment: @comment, team: @team }
+
+
+
             = link_to"編集", edit_team_path

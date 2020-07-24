@@ -1,0 +1,8 @@
+
+=comments.count
+件
+%h6
+	- comments.first(2).each do |comment|
+		- unless comment.id.nil?
+			%li.comment-container
+				.comment-text

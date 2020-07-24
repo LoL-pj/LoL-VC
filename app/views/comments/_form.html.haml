@@ -1,0 +1,3 @@
+= form_with(model: [team, comment], url: team_comments_path(@team)) do |f|
+	= f.text_area :content, class: "input-mysize"
+	= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right"

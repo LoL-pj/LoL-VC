@@ -17,6 +17,8 @@ class TeamsController < ApplicationController
     @ranks = @team.rank_ids.map do |r|
       Rank.find(r).name
     end
+    @comment = Comment.new
+    @comments = @team.comments.order(created_at: :desc)
   end
 
   def new
