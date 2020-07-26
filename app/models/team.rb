@@ -6,7 +6,7 @@ require "addressable/uri"
 
 
 class Team < ApplicationRecord
-  API_KEY = 'RGAPI-abc18254-19a3-4eee-a828-d0243559a545'
+  API_KEY = ENV['API_KEY']
 
   has_secure_password
   has_many :team_ranks, dependent: :destroy
