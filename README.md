@@ -3,6 +3,16 @@
 ### 前提
 Dockerを使って立ち上げます。
 
+### 環境変数の設定
+`.env`ファイルの追加
+
+```
+$ cp .env.example .env
+$ vi .env  # Edit API KEY
+```
+
+`API KEY`は@rutkoに聞いてください
+
 ### ビルド
 `docker-compose build`
 
