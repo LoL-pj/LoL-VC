@@ -1,8 +1,6 @@
 class TeamsController < ApplicationController
-  PER = 24
-  before_action :set_team,  only: [:show, :edit, :update, :destroy]
-  before_action :get_all,   only: [:index, :edit, :new, :search]
-  before_action :get_teams, only: [:index, :search]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :get_all, only: [:index, :edit, :new, :search]
 
   def index
   end
@@ -68,13 +66,10 @@ class TeamsController < ApplicationController
   end
 
   def get_all
+    @teams = Team.all
     @game_types = GameType.all
     @ranks = Rank.all
     @champions = Champion.all
-  end
-
-  def get_teams
-    @teams = Team.page(params[:page]).per(PER)
   end
 
   private
