@@ -3,15 +3,15 @@ class CommentsController < ApplicationController
 		@team = Team.find(params[:team_id])
 
 		@comment = @team.comments.build(comment_params)
-		@comment.save
-
-		render :index
+		if @comment.save
+			render 'comments/index.js.erb'
+		end
 	end
 
 	def destroy
 		@comment = Comment.find(params[:id])
 		@comment.destroy
-		render :index
+		render 'comments/index.js.erb'
 	end
 
 	private
