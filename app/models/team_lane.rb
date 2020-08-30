@@ -1,4 +1,4 @@
 class TeamLane < ApplicationRecord
   belongs_to :team
-  belogns_to :lane
+  belongs_to :lane
 end
