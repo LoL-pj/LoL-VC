@@ -7,13 +7,14 @@
   margin: 0 auto 15px;
   padding: 0 55px;
   flex-wrap: wrap;
-  .team {
-    margin: 20px;
-    .listing-card-team {
-      position: relative;
-      margin: 0.5rem 0 1rem 0;
-      width: 300px;
-    }
+}
+
+.team {
+  margin: 20px;
+  .listing-card-team {
+    position: relative;
+    margin: 0.5rem 0 1rem 0;
+    width: 300px;
   }
 }
 
