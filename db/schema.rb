@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_165324) do
+ActiveRecord::Schema.define(version: 2020_08_30_164945) do
 
   create_table "champions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -18,7 +18,20 @@ ActiveRecord::Schema.define(version: 2020_06_07_165324) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content"
+    t.integer "team_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "game_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lanes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,6 +65,15 @@ ActiveRecord::Schema.define(version: 2020_06_07_165324) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_type_id"], name: "index_team_game_types_on_game_type_id"
     t.index ["team_id"], name: "index_team_game_types_on_team_id"
+  end
+
+  create_table "team_lanes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "lane_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lane_id"], name: "index_team_lanes_on_lane_id"
+    t.index ["team_id"], name: "index_team_lanes_on_team_id"
   end
 
   create_table "team_ranks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -88,6 +110,8 @@ ActiveRecord::Schema.define(version: 2020_06_07_165324) do
   add_foreign_key "team_champions", "teams"
   add_foreign_key "team_game_types", "game_types"
   add_foreign_key "team_game_types", "teams"
+  add_foreign_key "team_lanes", "lanes"
+  add_foreign_key "team_lanes", "teams"
   add_foreign_key "team_ranks", "ranks"
   add_foreign_key "team_ranks", "teams"
   add_foreign_key "team_tags", "tags"
