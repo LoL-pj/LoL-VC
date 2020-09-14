@@ -60,7 +60,7 @@ class TeamsController < ApplicationController
   end
 
   def search
-    @teams = Team.search(team_search_params)
+    @teams = Team.search(team_search_params).page(params[:page]).per(PER)
   end
 
   def team_params

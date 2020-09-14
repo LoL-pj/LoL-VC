@@ -22,12 +22,12 @@
             %span= r.text
 
     .field
-      = f.label :champion_ids, class: 'item-name'
+      = f.label :lane_ids, class: 'item-name'
       .block
-        = f.collection_check_boxes :champion_ids, Champion.all, :id, :name do |c|
-          = c.label do
-            = c.check_box
-            %span= c.text
+        = f.collection_check_boxes :lane_ids, Lane.all, :id, :name do |l|
+          = l.label do
+            = l.check_box
+            %span= l.text
 
     .field
       = f.submit 'Search', class: "waves-effect waves-light btn search-btn"
