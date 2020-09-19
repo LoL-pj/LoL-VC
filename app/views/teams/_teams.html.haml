@@ -29,12 +29,12 @@
                   .chip
                     = @game_types.find(g).name
 
-              .champion_label
-                %strong= t(:champion)
-              .champion_tags
-                - team.champion_ids.map do |c|
+              .lane_label
+                %strong= t(:lane)
+              .lane_tags
+                - team.lane_ids.map do |l|
                   .chip
-                    = @champions.find(c).name
+                    = @lanes.find(l).name
 
             - if team.discord?
               .discord_id

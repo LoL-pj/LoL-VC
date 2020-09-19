@@ -28,12 +28,12 @@
                 .chip
                   = g
 
-            .champion_label
-              %strong= t(:champion)
-            .champion_tags
-              - @champions.each do |c|
+            .lane_label
+              %strong= t(:lane)
+            .lane_tags
+              - @lanes.each do |l|
                 .chip
-                  = c
+                  = l
 
           - if @team.discord?
             .discord_id 

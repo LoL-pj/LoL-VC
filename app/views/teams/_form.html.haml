@@ -21,9 +21,9 @@
       %span= r.text
 
   %br/
-  = f.label :champion, t(:champion)
+  = f.label :lane, t(:lane)
   %br/
-  = f.collection_check_boxes :champion_ids, @champions, :id, :name do |r|
+  = f.collection_check_boxes :lane_ids, @lanes, :id, :name do |r|
     = r.label do
       = r.check_box
       %span= r.text

@@ -23,3 +23,9 @@ game_types = ['Normal', 'Rank', 'TFT', 'ARAM']
 game_types.each do |game_type|
   GameType.create(name: game_type)
 end
+
+#Lane
+lanes = ['top', 'mid', 'jg', 'adc', 'support']
+lanes.each do |lane|
+  Lane.create(name: lane)
+end

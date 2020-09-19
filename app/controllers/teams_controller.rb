@@ -19,6 +19,10 @@ class TeamsController < ApplicationController
     @ranks = @team.rank_ids.map do |r|
       Rank.find(r).name
     end
+
+    @lanes = @team.lane_ids.map do |l|
+      Lane.find(l)
+    end
   end
 
   def new
@@ -56,11 +60,11 @@ class TeamsController < ApplicationController
   end
 
   def search
-    @teams = Team.search(team_search_params)
+    @teams = Team.search(team_search_params).page(params[:page]).per(PER)
   end
 
   def team_params
-    params.require(:team).permit(:title, :summoner_name, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [])
+    params.require(:team).permit(:title, :summoner_name, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [], lane_ids: [])
   end
 
   def set_team
@@ -71,6 +75,7 @@ class TeamsController < ApplicationController
     @game_types = GameType.all
     @ranks = Rank.all
     @champions = Champion.all
+    @lanes = Lane.all
   end
 
   def get_teams
@@ -80,6 +85,6 @@ class TeamsController < ApplicationController
   private
 
   def team_search_params
-    params.fetch(:search, {}).permit(:keyword, game_type_ids: [], rank_ids: [], champion_ids: [])
+    params.fetch(:search, {}).permit(:keyword, game_type_ids: [], rank_ids: [], champion_ids: [], lane_ids: [])
   end
 end
