@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
     end
 
     @lanes = @team.lane_ids.map do |l|
-      Lane.find(l)
+      Lane.find(l).name
     end
   end
 
