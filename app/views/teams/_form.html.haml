@@ -1,7 +1,4 @@
 = form_for @team, url: {controller: "teams", action: action }, html: {class: "team_form"} do |f|
-  = f.label :title, t(:title)
-  = f.text_field :title, placeholder:'タイトル'
-
   = f.label :rank_id
   %br/
   = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
