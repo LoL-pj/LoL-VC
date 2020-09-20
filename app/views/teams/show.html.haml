@@ -2,54 +2,43 @@
   .listing-card-team
     %ul.collection-team
       %li.collection-team.avatar
-        .team-body
+        .team-header
           .summoner_name
-            %strong= t(:summoner_name)
             %br/
             %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/9.3.1/img/profileicon/#{@team.profile_image}.png", alt: "profile_img"}
-            %a{ href: "https://jp.op.gg/summoner/userName=#{@team.summoner_name}" } #{ @team.summoner_name }
+            .user_name
+              %i.material-icons person
+              %a{ href: "https://jp.op.gg/summoner/userName=#{@team.summoner_name}" } #{ @team.summoner_name }
+
 
           .tags
-            .rank_label
-            %br/
-            %strong= t(:rank)
-            %br/
             - @ranks.each do |r|
               .chip
                 = r
+            - @game_types.each do |g|
+              .chip
+                = g
+            - @lanes.each do |l|
+              .chip
+                = l
+        .team-body
+          -# - if @team.discord?
+          -#   .discord_id
+          -#   %strong= t(:discord)
+          -#   %br/
+          -#   = @team.discord
 
-            .game_type_label
-              %strong= t(:game_type)
-            .game_type_tags
-              - @game_types.each do |g|
-                .chip
-                  = g
-
-            .lane_label
-              %strong= t(:lane)
-            .lane_tags
-              - @lanes.each do |l|
-                .chip
-                  = l
-
-          - if @team.discord?
-            .discord_id
-            %strong= t(:discord)
-            %br/
-            = @team.discord
-
-          - if @team.skype?
-            .skype_id
-            %strong= t(:skype)
-            %br/
-            = @team.skype
+          -# - if @team.skype?
+          -#   .skype_id
+          -#   %strong= t(:skype)
+          -#   %br/
+          -#   = @team.skype
 
           .message
             %span.body
               %br/
-              %strong= t(:body)
-              %br/
               = @team.body
 
-  .card-action
-    = link_to"募集を編集", edit_team_path
+          .card-action
+            .waves-effect.waves-light.btn-small
+              = link_to"編集する", edit_team_path
