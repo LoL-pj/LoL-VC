@@ -3,54 +3,45 @@
     .listing-card-team
       %ul.collection-team
         %li.collection-team.avatar
-          .team-body
+          .team-header
             .summoner_name
-              %strong= t(:summoner_name)
               %br/
               %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.19.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
-              %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+              .user_name
+                %i.material-icons person
+                %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
             .tags
-              .rank_label
-                %strong= t(:rank)
-              .rank_tags
-                - team.rank_ids.map do |r|
-                  .chip
-                    = @ranks.find(r).name
+              - team.rank_ids.map do |r|
+                .chip
+                  = @ranks.find(r).name
+              - team.game_type_ids.map do |g|
+                .chip
+                  = @game_types.find(g).name
+              - team.lane_ids.map do |l|
+                .chip
+                  = @lanes.find(l).name
+          .team-body
 
-              .game_type_label
-                %strong= t(:game_type)
-              .game_type_tags
-                - team.game_type_ids.map do |g|
-                  .chip
-                    = @game_types.find(g).name
 
-              .lane_label
-                %strong= t(:lane)
-              .lane_tags
-                - team.lane_ids.map do |l|
-                  .chip
-                    = @lanes.find(l).name
+            -# - if team.discord?
+            -#   .discord_id
+            -#     %strong= t(:discord)
+            -#     %br/
+            -#     = team.discord
 
-            - if team.discord?
-              .discord_id
-                %strong= t(:discord)
-                %br/
-                = team.discord
-
-            - if team.skype?
-              .skype_id
-                %strong= t(:skype)
-                %br/
-                = team.skype
+            -# - if team.skype?
+            -#   .skype_id
+            -#     %strong= t(:skype)
+            -#     %br/
+            -#     = team.skype
 
             .message
               %span.body
                 %br/
-                %strong= t(:body)
-                %br/
                 = team.body
 
             .card-action
-              = link_to"詳細", "teams/#{team.id}"
+              .waves-effect.waves-light.btn-small
+                = link_to"詳細", "teams/#{team.id}"
 = paginate teams

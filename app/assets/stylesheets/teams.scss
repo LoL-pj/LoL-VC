@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .contents {
+  margin: 20px  0px;
   text-align: center;
-  margin:     20px  0px;
 }
 
 .teams {
@@ -38,8 +38,33 @@
   height: auto;
 }
 
-.team-body {
+.team-header {
+  background-color: #4F628E;
+}
+
+.summoner_name {
+  display: flex;
   padding: 10px 20px;
+}
+
+.user_name {
+  margin: 20px 0px 0px 10px;
+}
+
+.tags {
+  padding: 10px 20px;
+}
+
+.message {
+  background-color: #ecf0f1;
+  color: #4F628E;
+  padding: 10px;
+}
+
+.card-action {
+  background-color: #4F628E;
+  padding: 10px;
+  text-align: right;
 }
 
 .team_form {
