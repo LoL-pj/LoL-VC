@@ -13,3 +13,13 @@ ja:
       teams:
         opgg: OP.GG
         edit: 編集する
+
+      form:
+        rank_id:       ランク
+        summoner_name: サモナーID
+        game_type:     ゲーム
+        lane_type:     レーン
+        discord:       discord
+        skype:         skype
+        body:          メッセージ
+        password:      パスワード
