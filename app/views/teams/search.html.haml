@@ -1,5 +1,7 @@
+%h5='検索結果'
+- if @keyword.present?
+  %h6= "#{@keyword}を含む投稿"
 - if @teams.present?
-  %h5='検索結果'
   = render 'teams', teams: @teams
 - else
   %p= '該当の投稿はございませんでした'

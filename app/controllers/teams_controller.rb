@@ -61,6 +61,7 @@ class TeamsController < ApplicationController
 
   def search
     @teams = Team.search(team_search_params).distinct.page(params[:page]).per(PER)
+    @keyword = team_search_params[:keyword]
   end
 
   def team_params
