@@ -11,4 +11,5 @@ ja:
         lane_type: レーン
 
       teams:
-        submit: 詳細
+        opgg: OP.GG
+        edit: 編集する
