@@ -1,0 +1,14 @@
+ja:
+  teams:
+      show:
+        submit: 編集する
+
+      search:
+        submit:    検索
+        keyword:   キーワード
+        game_type: ゲーム
+        rank_type: ランク
+        lane_type: レーン
+
+      teams:
+        submit: 詳細
