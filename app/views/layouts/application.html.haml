@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %script{async: true, "data-ad-client": "ca-pub-1182178791126367", src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-    %title LoLの友達が見つかる掲示板 - LoL-VC
+    %title= t('title')
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -11,7 +11,7 @@
   %body
     %nav
       .nav-wrapper
-        %a.brand-logo{href: "/"} LoLVC
+        %a.brand-logo{href: "/"}LoLVC
         %ul.right.hide-on-med-and-down
           %li
             %a{onclick: "window.location.reload();"}
