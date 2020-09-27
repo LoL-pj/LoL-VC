@@ -1,14 +1,14 @@
 = form_for @team, url: {controller: "teams", action: action }, html: {class: "team_form"} do |f|
   = f.label t('.rank_id')
   %br/
+  = f.label t('.summoner_name')
+  = f.text_field :summoner_name, placeholder:'サモナー名'
+
+  %br/
   = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
     = r.label do
       = r.check_box
       %span= r.text
-
-  %br/
-  = f.label t('.summoner_name')
-  = f.text_field :summoner_name, placeholder:'サモナー名'
 
   = f.label t('.game_type')
   %br/
