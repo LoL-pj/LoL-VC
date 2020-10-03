@@ -1,5 +1,5 @@
 class AddGenderToTeams < ActiveRecord::Migration[6.0]
   def change
-    add_column :teams, :gender, :integer
+    add_column :teams, :gender, :integer, default: 2
   end
 end
