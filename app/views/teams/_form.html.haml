@@ -1,4 +1,5 @@
 = form_for @team, url: {controller: "teams", action: action }, html: {class: "team_form"} do |f|
+
   %br/
   = f.label t('.summoner_name')
   = f.text_field :summoner_name, placeholder:'サモナー名'
