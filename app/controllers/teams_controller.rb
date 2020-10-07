@@ -65,7 +65,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:summoner_name, :gender, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [], lane_ids: [])
+    params.require(:team).permit(:summoner_name, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [], lane_ids: [])
   end
 
   def set_team

@@ -16,7 +16,6 @@ ja:
 
       form:
         rank_id:       ランク
-        gender:        性別
         summoner_name: サモナーID
         game_type:     ゲーム
         lane_type:     レーン
