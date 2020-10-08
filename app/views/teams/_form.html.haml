@@ -5,6 +5,19 @@
   = f.text_field :summoner_name, placeholder:'サモナー名'
 
   %br/
+  = f.label t('.gender')
+  %br/
+  = f.label :gender_man, :man do
+    = f.radio_button :gender, :man, class: "with-gap"
+    %span= '男性'
+  = f.label :gender_woman, :woman do
+    = f.radio_button :gender, :woman, class: "with-gap"
+    %span= '女性'
+  = f.label :gender_unknown, :unknown do
+    = f.radio_button :gender, :unknown, class: "with-gap"
+    %span= '不明'
+
+  %br/
   = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
     = r.label do
       = r.check_box
