@@ -22,7 +22,7 @@ class Team < ApplicationRecord
   validates :body, presence: true
   validates :summoner_name, presence: true
 
-  enum gender: { man: 0, wonman: 1, unknown: 2 }
+  enum gender: { man: 0, woman: 1, unknown: 2 }
 
   scope :search, -> (search_params) do
     return if search_params.blank?
