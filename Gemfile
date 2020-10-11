@@ -69,3 +69,4 @@ gem 'kaminari'
 
 gem 'dotenv-rails'
 
+gem 'annotate'
