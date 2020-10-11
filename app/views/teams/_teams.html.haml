@@ -3,24 +3,63 @@
     .listing-card-team
       %ul.collection-team
         %li.collection-team.avatar
-          .team-header
-            .summoner_name
-              %br/
-              %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.19.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
-              .user_name
-                %i.material-icons person
-                %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+          - if team.gender == 'man'
+            .team-header-man
+              .summoner_name
+                %br/
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.19.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                .user_name
+                  %i.material-icons person
+                  %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
-            .tags
-              - team.rank_ids.map do |r|
-                .chip
-                  = @ranks.find(r).name
-              - team.game_type_ids.map do |g|
-                .chip
-                  = @game_types.find(g).name
-              - team.lane_ids.map do |l|
-                .chip
-                  = @lanes.find(l).name
+              .tags
+                - team.rank_ids.map do |r|
+                  .chip
+                    = @ranks.find(r).name
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
+                - team.lane_ids.map do |l|
+                  .chip
+                    = @lanes.find(l).name
+          - elsif team.gender == 'woman'
+            .team-header-woman
+              .summoner_name
+                %br/
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.19.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                .user_name
+                  %i.material-icons person
+                  %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+
+              .tags
+                - team.rank_ids.map do |r|
+                  .chip
+                    = @ranks.find(r).name
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
+                - team.lane_ids.map do |l|
+                  .chip
+                    = @lanes.find(l).name
+          - else team.gender == 'unknown'
+            .team-header-unknown
+              .summoner_name
+                %br/
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.19.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                .user_name
+                  %i.material-icons person
+                  %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+
+              .tags
+                - team.rank_ids.map do |r|
+                  .chip
+                    = @ranks.find(r).name
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
+                - team.lane_ids.map do |l|
+                  .chip
+                    = @lanes.find(l).name
           .team-body
 
 
