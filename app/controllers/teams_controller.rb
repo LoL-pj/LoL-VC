@@ -80,7 +80,7 @@ class TeamsController < ApplicationController
   end
 
   def get_teams
-    @teams = Team.page(params[:page]).per(PER)
+    @teams = Team.page(params[:page]).per(PER).order("id DESC")
   end
 
   private
