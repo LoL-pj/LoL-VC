@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   PER = 24
   before_action :set_team,  only: [:show, :edit, :update, :destroy]
   before_action :get_all,   only: [:index, :edit, :new, :search]
-  before_action :get_teams, only: [:index, :search]
+  before_action :get_teams, only: [:index]
 
   def index
   end
@@ -60,7 +60,7 @@ class TeamsController < ApplicationController
   end
 
   def search
-    @teams = Team.search(team_search_params).distinct.page(params[:page]).per(PER)
+    @teams = Team.search(team_search_params).distinct.page(params[:page]).per(PER).order("updated_at DESC")
     @keyword = team_search_params[:keyword]
   end
 
@@ -80,7 +80,7 @@ class TeamsController < ApplicationController
   end
 
   def get_teams
-    @teams = Team.page(params[:page]).per(PER).order("id DESC")
+    @teams = Team.page(params[:page]).per(PER).order("updated_at DESC")
   end
 
   private
