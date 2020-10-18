@@ -79,6 +79,8 @@
               %span.body
                 %br/
                 = team.body
+              .post-time
+                = team.updated_at.strftime("%F/%R")
 
             .card-action
               .waves-effect.waves-light.btn-small
