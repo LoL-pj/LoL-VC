@@ -10,6 +10,7 @@
 #  gender          :integer          default("man")
 #  password_digest :string(255)
 #  profile_image   :integer
+#  rank_range      :string(255)      default("UNRANK")
 #  skype           :string(255)
 #  summoner_name   :string(255)      not null
 #  created_at      :datetime         not null
@@ -57,5 +58,22 @@ class Team < ApplicationRecord
 		return_data = Net::HTTP.get(uri)
 		summoner_data = JSON.parse(return_data)
 		summoner_data["profileIconId"]
-	end
+  end
+  
+  def rank_rng(summoner_name)
+    summoner_v4 = Addressable::URI.parse("https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{API_KEY}")
+    return_data = Net::HTTP.get(summoner_v4)
+		summoner_data = JSON.parse(return_data)
+    encrypted_summoner_id = summoner_data["id"]
+
+    league_v4 = Addressable::URI.parse("https://jp1.api.riotgames.com/lol/league/v4/entries/by-summoner/#{encrypted_summoner_id}?api_key=#{API_KEY}")
+    return_data = Net::HTTP.get(league_v4) 
+    league_data = JSON.parse(return_data)
+    
+    if league_data.empty?
+      "UNRANK"
+    else  
+      league_data[0]["tier"]
+    end
+  end
 end
