@@ -14,6 +14,7 @@
 #  summoner_name   :string(255)      not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  rank_id         :integer
 #
 require 'net/http'
 require 'uri'
@@ -38,7 +39,8 @@ class Team < ApplicationRecord
   validates :body, presence: true
   validates :summoner_name, presence: true
 
-  enum gender: { man: 0, woman: 1, unknown: 2 }
+  enum gender:  { man: 0, woman: 1, unknown: 2 }
+  enum rank_id: { unranked: 0, bronze: 1, silver: 2, gold: 3, platinum: 4, diamond: 5, master: 6, grandmaster: 7, challenger:8 }
 
   scope :search, -> (search_params) do
     return if search_params.blank?
@@ -56,6 +58,18 @@ class Team < ApplicationRecord
 		uri = Addressable::URI.parse("https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{API_KEY}")
 		return_data = Net::HTTP.get(uri)
 		summoner_data = JSON.parse(return_data)
-		summoner_data["profileIconId"]
-	end
+    summoner_data["profileIconId"]
+  end
+
+  def tier(summoner_name)
+    summoner_v4 = Addressable::URI.parse("https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{API_KEY}")
+    return_data = Net::HTTP.get(summoner_v4)
+		summoner_data = JSON.parse(return_data)
+    encrypted_summoner_id = summoner_data["id"]
+
+    league_v4 = Addressable::URI.parse("https://jp1.api.riotgames.com/lol/league/v4/entries/by-summoner/#{encrypted_summoner_id}?api_key=#{API_KEY}")
+    return_data = Net::HTTP.get(league_v4) 
+    league_data = JSON.parse(return_data)
+    league_data["tier"]
+  end
 end

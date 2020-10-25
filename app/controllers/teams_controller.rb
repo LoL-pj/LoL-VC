@@ -28,10 +28,11 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
   end
-
+range
   def create
     @team = Team.new(team_params)
     @team.profile_image = @team.profile_img(@team.summoner_name)
+    @team.rank_range = @team.tier(@team.summoner_name)
     if @team.summoner_name.present?
       @team.save
       redirect_to @team, notice: '投稿しました'
