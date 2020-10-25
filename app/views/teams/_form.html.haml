@@ -19,19 +19,19 @@
     %span= '不明'
 
     %br/
-    = f.label t('.rank_id')
+    = f.label t('.game_type')
 
   %br/
-  = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
+  = f.collection_check_boxes :game_type_ids, @game_types, :id, :name do |r|
     = r.label do
       = r.check_box
       %span= r.text
 
   %br/
-  = f.label t('.game_type')
+  = f.label t('.rank_id')
 
   %br/
-  = f.collection_check_boxes :game_type_ids, @game_types, :id, :name do |r|
+  = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
     = r.label do
       = r.check_box
       %span= r.text
