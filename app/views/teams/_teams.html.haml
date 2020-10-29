@@ -13,6 +13,8 @@
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
               .tags
+                .rank_icon
+                  %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
                 - team.rank_ids.map do |r|
                   .chip
                     = @ranks.find(r).name
@@ -32,6 +34,8 @@
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
               .tags
+                .rank_icon
+                  %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
                 - team.rank_ids.map do |r|
                   .chip
                     = @ranks.find(r).name
@@ -51,6 +55,8 @@
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
               .tags
+                .rank_icon
+                  %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
                 - team.rank_ids.map do |r|
                   .chip
                     = @ranks.find(r).name

@@ -8,6 +8,7 @@
 #  gender          :integer          default("man")
 #  password_digest :string(255)
 #  profile_image   :integer
+#  rank_range      :string(255)      default("UNRANK")
 #  skype           :string(255)
 #  summoner_name   :string(255)      not null
 #  created_at      :datetime         not null
