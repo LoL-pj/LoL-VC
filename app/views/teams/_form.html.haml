@@ -28,15 +28,6 @@
       %span= r.text
 
   %br/
-  = f.label t('.rank_id')
-
-  %br/
-  = f.collection_check_boxes :rank_ids, @ranks, :id, :name do |r|
-    = r.label do
-      = r.check_box
-      %span= r.text
-
-  %br/
   = f.label t('.lane_type')
   %br/
   = f.collection_check_boxes :lane_ids, @lanes, :id, :name do |r|

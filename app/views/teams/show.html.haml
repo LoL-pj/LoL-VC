@@ -12,9 +12,8 @@
 
 
           .tags
-            - @ranks.each do |r|
-              .chip
-                = r
+            .chip
+              = @team.rank_range
             - @game_types.each do |g|
               .chip
                 = g
