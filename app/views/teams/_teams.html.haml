@@ -15,9 +15,8 @@
               .tags
                 .rank_icon
                   %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
-                - team.rank_ids.map do |r|
-                  .chip
-                    = @ranks.find(r).name
+                .chip
+                  = team.rank_range
                 - team.game_type_ids.map do |g|
                   .chip
                     = @game_types.find(g).name
@@ -36,9 +35,8 @@
               .tags
                 .rank_icon
                   %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
-                - team.rank_ids.map do |r|
-                  .chip
-                    = @ranks.find(r).name
+                .chip
+                  = team.rank_range
                 - team.game_type_ids.map do |g|
                   .chip
                     = @game_types.find(g).name
@@ -57,9 +55,8 @@
               .tags
                 .rank_icon
                   %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
-                - team.rank_ids.map do |r|
-                  .chip
-                    = @ranks.find(r).name
+                .chip
+                  = team.rank_range
                 - team.game_type_ids.map do |g|
                   .chip
                     = @game_types.find(g).name

@@ -16,10 +16,6 @@ class TeamsController < ApplicationController
       GameType.find(c).name
     end
 
-    @ranks = @team.rank_ids.map do |r|
-      Rank.find(r).name
-    end
-
     @lanes = @team.lane_ids.map do |l|
       Lane.find(l).name
     end
@@ -66,7 +62,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:summoner_name, :gender, :discord, :skype, :body, :password, rank_ids: [], game_type_ids: [], champion_ids: [], lane_ids: [])
+    params.require(:team).permit(:summoner_name, :gender, :discord, :skype, :body, :password, game_type_ids: [], champion_ids: [], lane_ids: [])
   end
 
   def set_team
@@ -75,7 +71,6 @@ class TeamsController < ApplicationController
 
   def get_all
     @game_types = GameType.all
-    @ranks = Rank.all
     @champions = Champion.all
     @lanes = Lane.all
   end
