@@ -19,7 +19,7 @@ champions.each do |champion|
 end
 
 #GameType
-game_types = ['Normal', 'Rank', 'TFT', 'ARAM']
+game_types = ['Normal', 'Rank', 'TFT', 'ARAM', 'WildRift']
 game_types.each do |game_type|
   GameType.create(name: game_type)
 end
