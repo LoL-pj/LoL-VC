@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Rank
-ranks = ['UNRANK', 'IRON', 'BRONZE', 'SILVER', 'GOLD', 'PlATINUM', 'DIAMOND', 'MASTER', 'GRANDMASTER', 'CHALLENGER']
+ranks = ['UNRANKED', 'IRON', 'BRONZE', 'SILVER', 'GOLD', 'PlATINUM', 'DIAMOND', 'MASTER', 'GRANDMASTER', 'CHALLENGER']
 ranks.each do |rank|
   Rank.create(name: rank)
 end
