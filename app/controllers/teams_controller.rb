@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
   before_action :set_team,  only: [:show, :edit, :update, :destroy]
   before_action :get_all,   only: [:index, :edit, :new, :search]
   before_action :get_teams, only: [:index]
+  before_action :set_request_variant
 
   def index
   end
