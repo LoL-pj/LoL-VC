@@ -4,7 +4,6 @@ module UserAgentHelper
   end
 
   def user_agent
-    binding.pry
     @user_agent ||= UserAgent.parse(user_agent_string)
   end
 
