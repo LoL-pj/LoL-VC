@@ -70,10 +70,14 @@ class Team < ApplicationRecord
     return_data = Net::HTTP.get(league_v4) 
     league_data = JSON.parse(return_data)
     
+    begin
     if league_data.empty?
       "UNRANK"
     else  
       league_data[0]["tier"]
+    end
+  rescue NoMethodError
+    "UNRANK"
     end
   end
 end
