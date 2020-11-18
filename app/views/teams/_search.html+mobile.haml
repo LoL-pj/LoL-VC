@@ -1,0 +1,33 @@
+.search-form
+  = form_with scope: :search, url: search_teams_path, method: :get, local: true do |f|
+    .field
+      = f.label t('.keyword'), class: 'item-name'
+      .block
+        = f.text_field :keyword
+
+    .field
+      = f.label t('.game_type'), class: 'item-name'
+      .block
+        = f.collection_check_boxes :game_type_ids, GameType.all, :id, :name do |g|
+          = g.label do
+            = g.check_box
+            %span= g.text
+
+    .field
+      = f.label t('.rank_type'), class: 'item-name'
+      .block
+        = f.collection_check_boxes :rank_ids, Rank.all, :id, :name do |r|
+          = r.label do
+            = r.check_box
+            %span= r.text
+
+    .field
+      = f.label t('.lane_type'), class: 'item-name'
+      .block
+        = f.collection_check_boxes :lane_ids, Lane.all, :id, :name do |l|
+          = l.label do
+            = l.check_box
+            %span= l.text
+
+    .field
+      = f.submit t('.submit'), class: "waves-effect waves-light btn search-btn"

@@ -1,0 +1,55 @@
+= form_for @team, url: {controller: "teams", action: action }, html: {class: "team_form"} do |f|
+  
+  %br/
+  = f.label t('.summoner_name')
+  = f.text_field :summoner_name, placeholder:'サモナー名'
+
+  %br/
+  = f.label t('.gender')
+
+  %br/
+  = f.label :gender_man, :man do
+    = f.radio_button :gender, :man, class: "with-gap"
+    %span= '男性'
+  = f.label :gender_woman, :woman do
+    = f.radio_button :gender, :woman, class: "with-gap"
+    %span= '女性'
+  = f.label :gender_unknown, :unknown do
+    = f.radio_button :gender, :unknown, class: "with-gap"
+    %span= '不明'
+
+    %br/
+    = f.label t('.game_type')
+
+  %br/
+  = f.collection_check_boxes :game_type_ids, @game_types, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
+  %br/
+  = f.label t('.lane_type')
+  %br/
+  = f.collection_check_boxes :lane_ids, @lanes, :id, :name do |r|
+    = r.label do
+      = r.check_box
+      %span= r.text
+
+  %br/
+  = f.label t('.discord')
+  %br/
+  = f.text_field :discord, placeholder:'Discord ID'
+  %br/
+  = f.label t('.skype')
+  = f.text_field :skype, placeholder:'Skype ID'
+  %br/
+  = f.label t('.body')
+  = f.text_area :body, placeholder:'メッセージ'
+  = f.label t('.password')
+  = f.password_field :password, placeholder:'パスワード'
+
+  - if action == "create"
+    = f.submit "募集する", class: "waves-effect waves-light btn"
+  - else
+    = f.submit "更新する", name: 'update', class: "waves-effect waves-light btn"
+    = f.submit "削除する", name: 'destroy', class: "waves-effect waves-light btn"

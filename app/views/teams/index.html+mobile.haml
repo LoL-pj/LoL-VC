@@ -1,0 +1,10 @@
+.contents
+  .welcome-message
+    %p LoLVCへようこそ！
+    %p ここはLeague of Legendsのフレンドを募集する掲示板です。
+  .btn-post-create
+    %a.waves-effect.waves-light.btn-large{href: "/teams/new"} 掲示板に投稿する！
+.post-search
+  = render 'search'
+.teams
+  = render 'teams', teams: @teams
