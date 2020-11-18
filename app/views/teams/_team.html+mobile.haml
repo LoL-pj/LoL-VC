@@ -1,0 +1,94 @@
+- @teams.each do |team|
+  .team
+    .listing-card-team
+      %ul.collection-team
+        %li.collection-team.avatar
+          - if team.gender == 'man'
+            .team-header-man
+              .summoner_name
+                %br/
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                .user_name
+                  %i.material-icons person
+                  %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+
+              .tags
+                .rank_icon
+                  %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
+                .chip
+                  = team.rank_range
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
+                - team.lane_ids.map do |l|
+                  .chip
+                    = @lanes.find(l).name
+          - elsif team.gender == 'woman'
+            .team-header-woman
+              .summoner_name
+                %br/
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                .user_name
+                  %i.material-icons person
+                  %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+
+              .tags
+                .rank_icon
+                  %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
+                .chip
+                  = team.rank_range
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
+                - team.lane_ids.map do |l|
+                  .chip
+                    = @lanes.find(l).name
+          - else team.gender == 'unknown'
+            .team-header-unknown
+              .summoner_name
+                %br/
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                .user_name
+                  %i.material-icons person
+                  %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
+
+              .tags
+                .rank_icon
+                  %img.circle.responsive-img{ src: "/assets/ranks/#{team.rank_range}.png" }
+                .chip
+                  = team.rank_range
+                - team.game_type_ids.map do |g|
+                  .chip
+                    = @game_types.find(g).name
+                - team.lane_ids.map do |l|
+                  .chip
+                    = @lanes.find(l).name
+          .team-body
+
+
+            -# - if team.discord?
+            -#   .discord_id
+            -#     %strong= t(:discord)
+            -#     %br/
+            -#     = team.discord
+
+            -# - if team.skype?
+            -#   .skype_id
+            -#     %strong= t(:skype)
+            -#     %br/
+            -#     = team.skype
+
+            .message
+              %span.body
+                %br/
+                = team.body
+              .post-time
+                = team.updated_at.strftime("%F/%R")
+
+            .card-action
+              .waves-effect.waves-light.btn-small
+                .material-icons.right launch
+                = link_to(t('.opgg'), "https://jp.op.gg/summoner/userName=#{team.summoner_name}")
+              .waves-effect.waves-light.btn-small
+                = link_to(t('.edit'), edit_team_path(team))
+= paginate teams
