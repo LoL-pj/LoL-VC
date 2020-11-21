@@ -2,14 +2,14 @@
   .listing-card-team
     %ul.collection-team
       %li.collection-team.avatar
-        .team-header
+      　- if @team.gender == 'man'
+        .team-header-man
           .summoner_name
             %br/
             %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/#{@team.profile_image}.png", alt: "profile_img"}
             .user_name
               %i.material-icons person
               %a{ href: "https://jp.op.gg/summoner/userName=#{@team.summoner_name}" } #{ @team.summoner_name }
-
 
           .tags
             .chip
@@ -20,6 +20,7 @@
             - @lanes.each do |l|
               .chip
                 = l
+
         .team-body
           -# - if @team.discord?
           -#   .discord_id
@@ -41,3 +42,85 @@
           .card-action
             .waves-effect.waves-light.btn-small
               = link_to(t('.submit'), edit_team_path)
+
+        - elsif @team.gender == 'woman'
+          .team-header-woman
+            .summoner_name
+              %br/
+              %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/#{@team.profile_image}.png", alt: "profile_img"}
+              .user_name
+                %i.material-icons person
+                %a{ href: "https://jp.op.gg/summoner/userName=#{@team.summoner_name}" } #{ @team.summoner_name }
+          
+            .tags
+              .chip
+                = @team.rank_range
+              - @game_types.each do |g|
+                .chip
+                  = g
+              - @lanes.each do |l|
+                .chip
+                  = l
+​
+          .team-body
+            -# - if @team.discord?
+            -#   .discord_id
+            -#   %strong= t(:discord)
+            -#   %br/
+            -#   = @team.discord
+​
+            -# - if @team.skype?
+            -#   .skype_id
+            -#   %strong= t(:skype)
+            -#   %br/
+            -#   = @team.skype
+​
+            .message
+              %span.body
+                %br/
+                = @team.body
+​
+            .card-action
+              .waves-effect.waves-light.btn-small
+                = link_to(t('.submit'), edit_team_path)
+​
+        - else @team.gender == 'unknown'
+          .team-header-unknown
+            .summoner_name
+              %br/
+              %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/10.21.1/img/profileicon/#{@team.profile_image}.png", alt: "profile_img"}
+              .user_name
+                %i.material-icons person
+                %a{ href: "https://jp.op.gg/summoner/userName=#{@team.summoner_name}" } #{ @team.summoner_name }
+            
+            .tags
+              .chip
+                = @team.rank_range
+              - @game_types.each do |g|
+                .chip
+                  = g
+              - @lanes.each do |l|
+                .chip
+                  = l
+​
+          .team-body
+            -# - if @team.discord?
+            -#   .discord_id
+            -#   %strong= t(:discord)
+            -#   %br/
+            -#   = @team.discord
+​
+            -# - if @team.skype?
+            -#   .skype_id
+            -#   %strong= t(:skype)
+            -#   %br/
+            -#   = @team.skype
+​
+            .message
+              %span.body
+                %br/
+                = @team.body
+​
+            .card-action
+              .waves-effect.waves-light.btn-small
+                = link_to(t('.submit'), edit_team_path)
