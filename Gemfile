@@ -73,3 +73,5 @@ gem 'kaminari'
 gem 'dotenv-rails'
 
 gem 'annotate'
+
+gem 'rubocop', require: false
