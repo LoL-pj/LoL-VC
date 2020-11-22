@@ -35,7 +35,7 @@
 
 .circle.responsive-img {
   width: 50px;
-  height: auto;
+  height: 50px;
 }
 
 .team-header-man {
@@ -57,6 +57,11 @@
 
 .user_name {
   margin: 20px 0px 0px 10px;
+  a {
+    position: absolute;
+    top: 33px;
+    left: 110px;
+  }
 }
 
 .tags {
