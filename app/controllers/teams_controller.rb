@@ -1,12 +1,11 @@
 class TeamsController < ApplicationController
   PER = 24
-  before_action :set_team,  only: [:show, :edit, :update, :destroy]
-  before_action :get_all,   only: [:index, :edit, :new, :search]
+  before_action :set_team,  only: %i[show edit update destroy]
+  before_action :get_all,   only: %i[index edit new search]
   before_action :get_teams, only: [:index]
   before_action :set_request_variant
 
-  def index
-  end
+  def index; end
 
   def show
     @champions = @team.champion_ids.map do |c|
@@ -38,27 +37,26 @@ class TeamsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:update] && @team.authenticate(team_params[:password])
       @team.update(team_params)
       redirect_to @team, notice: '投稿を更新しました'
     elsif params[:destroy] && @team.authenticate(team_params[:password])
-      self.destroy
+      destroy
     else
       redirect_to edit_team_path, alert: 'パスワードが一致しません'
     end
   end
 
   def destroy
-      @team.destroy
-      redirect_to root_url, notice: '削除しました'
+    @team.destroy
+    redirect_to root_url, notice: '削除しました'
   end
 
   def search
-    @teams = Team.search(team_search_params).distinct.page(params[:page]).per(PER).order("updated_at DESC")
+    @teams = Team.search(team_search_params).distinct.page(params[:page]).per(PER).order('updated_at DESC')
     @keyword = team_search_params[:keyword]
   end
 
@@ -77,7 +75,7 @@ class TeamsController < ApplicationController
   end
 
   def get_teams
-    @teams = Team.page(params[:page]).per(PER).order("updated_at DESC")
+    @teams = Team.page(params[:page]).per(PER).order('updated_at DESC')
   end
 
   private
