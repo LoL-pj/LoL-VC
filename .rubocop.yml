@@ -1,0 +1,19 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'bin/**'
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
