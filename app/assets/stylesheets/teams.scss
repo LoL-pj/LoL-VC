@@ -1,20 +1,19 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-​
+
 .contents {
   margin: 20px  0px;
   text-align: center;
 }
-​
+
 .teams {
   display: flex;
   margin: 0 auto 15px;
   padding: 0 35px;
   flex-wrap: wrap;
-  justify-content: center;
 }
-​
+
 .team {
   margin: 20px;
   .listing-card-team {
@@ -23,7 +22,7 @@
     width: 300px;
   }
 }
-​
+
 .collection-team {
   border: 1px solid #e0e0e0;
   border-radius: 2px;
@@ -33,29 +32,29 @@
     line-height: 1.5rem;
   }
 }
-​
+
 .circle.responsive-img {
   width: 50px;
   height: 50px;
 }
-​
+
 .team-header-man {
   background-image: linear-gradient(#554f9c, #22194b);
 }
-​
+
 .team-header-woman {
   background-image: linear-gradient(#992f62, #431026);
 }
-​
+
 .team-header-unknown {
   background-image: linear-gradient(#959595, #454545);
 }
-​
+
 .summoner_name {
   display: flex;
   padding: 10px 20px;
 }
-​
+
 .user_name {
   margin: 20px 0px 0px 10px;
   a {
@@ -64,12 +63,12 @@
     left: 110px;
   }
 }
-​
+
 .tags {
   padding: 10px 20px;
   display: inline-flex;
 }
-​
+
 .message {
   background-color: #ecf0f1;
   color: #4F628E;
@@ -79,7 +78,7 @@
     text-align: right;
   }
 }
-​
+
 .card-action {
   background-color: #4F628E;
   padding: 10px;
@@ -88,17 +87,17 @@
     color: white;
   }
 }
-​
+
 .team_form {
   padding: 25px 55px;
-​
+
   label {
     color: white;
     margin-right: 25px;
-​
+
     span:not(.lever) {
       padding-left: 23px;
-​
+
       &:before {
         border-color: white;
         border-radius: 5px;
