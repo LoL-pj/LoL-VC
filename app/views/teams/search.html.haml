@@ -1,6 +1,8 @@
-%h5='検索結果'
-- if @keyword.present?
-  %h6= "#{@keyword}を含む投稿"
+.search_message
+  - unless @teams.count == 0
+    %h6= "#{@teams.count} 件見つかりました！"
+  - if @keyword.present?
+    %h6= "#{@keyword}を含む投稿"
 - if @teams.present?
   = render 'teams', teams: @teams
 - else
