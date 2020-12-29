@@ -82,6 +82,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -89,6 +90,11 @@ GEM
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     ffi (1.12.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -203,6 +209,23 @@ GEM
       ffi (~> 1.0)
     regexp_parser (1.7.0)
     rexml (3.2.4)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-rails (4.0.1)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.9)
+      rspec-expectations (~> 3.9)
+      rspec-mocks (~> 3.9)
+      rspec-support (~> 3.9)
+    rspec-support (3.10.0)
     rubocop (0.92.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -290,6 +313,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   dotenv-rails
+  factory_bot_rails
   haml-rails
   jbuilder (~> 2.7)
   jquery-rails
@@ -302,6 +326,7 @@ DEPENDENCIES
   puma (~> 4.3)
   rails (~> 6.0.1)
   rails-i18n
+  rspec-rails (~> 4.0.1)
   rubocop
   rubocop-rails
   sass-rails (>= 6)
@@ -319,4 +344,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.1.4
+   2.2.3
