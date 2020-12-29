@@ -6,6 +6,7 @@
 #  body            :text(65535)      not null
 #  discord         :string(255)
 #  gender          :integer          default("man")
+#  hidden          :boolean          default(TRUE), not null
 #  password_digest :string(255)
 #  profile_image   :integer
 #  rank_range      :string(255)      default("UNRANK")
