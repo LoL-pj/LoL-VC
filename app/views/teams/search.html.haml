@@ -4,6 +4,7 @@
   - if @keyword.present?
     %h6= "#{@keyword}を含む投稿"
 - if @teams.present?
-  = render 'teams', teams: @teams
+  .teams
+    = render 'teams', teams: @teams
 - else
   %p= '該当の投稿はございませんでした'
