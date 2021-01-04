@@ -46,7 +46,7 @@ class Team < ApplicationRecord
     keyword_like(search_params[:keyword]).game_type_like(search_params[:game_type_ids]).rank_like(search_params[:rank_ids]).lane_like(search_params[:lane_ids])
   }
 
-  scope :keyword_like, ->(keyword) { where('body LIKE ?', "%#{keyword}%") if keyword.present? }
+  scope :keyword_like, ->(keyword) { where('body LIKE ? OR summoner_name LIKE ?', "%#{keyword}%", "%#{keyword}%") if keyword.present? }
   scope :game_type_like, ->(game_type) { joins(:game_types).where(game_types: { id: game_type }) if game_type[1].present? }
   scope :rank_like, ->(rank) { joins(:ranks).where(ranks: { id: rank }) if rank[1].present? }
   scope :lane_like, ->(lane) { joins(:lanes).where(lanes: { id: lane }) if lane[1].present? }
