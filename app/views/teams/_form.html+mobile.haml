@@ -5,6 +5,18 @@
   = f.text_field :summoner_name, placeholder:'サモナー名'
 
   %br/
+  = f.label t('.rank_id')
+
+  %br/
+  = f.label :hidden_true, :ture do
+    = f.radio_button :hidden, :true, class: "with-gap"
+    %span= '非表示'
+
+  = f.label :hidden_false, :false do
+    = f.radio_button :hidden, :false, class: "with-gap"
+    %span= '表示'
+
+  %br/
   = f.label t('.gender')
 
   %br/
