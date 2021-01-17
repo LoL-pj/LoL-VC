@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_164234) do
+ActiveRecord::Schema.define(version: 2020_12_29_063842) do
 
   create_table "champions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_10_25_164234) do
     t.integer "profile_image"
     t.integer "gender", default: 0
     t.string "rank_range", default: "UNRANK"
+    t.boolean "hidden", default: true, null: false
   end
 
   add_foreign_key "team_champions", "champions"

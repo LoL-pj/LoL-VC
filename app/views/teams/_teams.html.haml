@@ -3,6 +3,9 @@
     .listing-card-team
       %ul.collection-team
         %li.collection-team.avatar
+          - unless team.hidden
+            .rank_range
+              = "ランク帯: #{team.rank_range}"
           - if team.gender == 'man'
             .team-header-man
               .summoner_name
@@ -13,8 +16,6 @@
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
               .tags
-                .chip
-                  = team.rank_range
                 - team.game_type_ids.map do |g|
                   .chip
                     = @game_types.find(g).name
@@ -31,8 +32,6 @@
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
               .tags
-                .chip
-                  = team.rank_range
                 - team.game_type_ids.map do |g|
                   .chip
                     = @game_types.find(g).name
@@ -49,8 +48,6 @@
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
 
               .tags
-                .chip
-                  = team.rank_range
                 - team.game_type_ids.map do |g|
                   .chip
                     = @game_types.find(g).name
