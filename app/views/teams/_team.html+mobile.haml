@@ -3,6 +3,9 @@
     .listing-card-team
       %ul.collection-team
         %li.collection-team.avatar
+          - unless team.hidden
+            .rank_range
+              = "ランク帯: #{team.rank_range}"
           - if team.gender == 'man'
             .team-header-man
               .summoner_name
