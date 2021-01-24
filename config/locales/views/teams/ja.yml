@@ -5,6 +5,8 @@ ja:
 
       search:
         submit:    検索
+        all_keyword: すべての項目
+        summoner_name: サモナー名
         keyword:   キーワード
         game_type: ゲーム
         rank_type: ランク

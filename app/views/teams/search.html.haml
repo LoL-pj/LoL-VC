@@ -1,6 +1,10 @@
 .search_message
   - unless @teams.count == 0
     %h6= "#{@teams.count} 件見つかりました！"
+  - if @all_keyword.present?
+    %h6= "#{@all_keyword}を含む投稿"
+  - if @summoner_name.present?
+    %h6= "#{@summoner_name}を含む投稿"
   - if @keyword.present?
     %h6= "#{@keyword}を含む投稿"
 - if @teams.present?
