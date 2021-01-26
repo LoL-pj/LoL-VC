@@ -57,9 +57,9 @@ class TeamsController < ApplicationController
 
   def search
     @teams = Team.search(team_search_params).distinct.page(params[:page]).per(PER).order('updated_at DESC')
-    @all_keyword = team_search_params[:all_keyword]
     @summoner_name = team_search_params[:summoner_name]
     @keyword = team_search_params[:keyword]
+    @or_search = team_search_params[:summoner_name], team_search_params[:keyword]
   end
 
   def team_params
@@ -83,6 +83,6 @@ class TeamsController < ApplicationController
   private
 
   def team_search_params
-    params.fetch(:search, {}).permit(:all_keyword, :summoner_name, :keyword, game_type_ids: [], rank_ids: [], champion_ids: [], lane_ids: [])
+    params.fetch(:search, {}).permit(:or_search, :summoner_name, :keyword, game_type_ids: [], rank_ids: [], champion_ids: [], lane_ids: [])
   end
 end
