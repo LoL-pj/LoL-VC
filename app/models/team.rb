@@ -38,17 +38,15 @@ class Team < ApplicationRecord
 
   validates :body, presence: true
   validates :summoner_name, presence: true
-  validates :or_search, presence: true
+
 
   enum gender: { man: 0, woman: 1, unknown: 2 }
 
   scope :search, lambda { |search_params|
     return if search_params.blank?
 
-    or_search_like(search_params[:or_search]).summoner_name_like(search_params[:summoner_name]).keyword_like(search_params[:keyword]).game_type_like(search_params[:game_type_ids]).rank_like(search_params[:rank_ids]).lane_like(search_params[:lane_ids])
+  summoner_name_like(search_params[:summoner_name]).keyword_like(search_params[:keyword]).game_type_like(search_params[:game_type_ids]).rank_like(search_params[:rank_ids]).lane_like(search_params[:lane_ids])
   }
-
-  scope :or_search_like, ->(or_search) { where('body LIKE ? OR summoner_name LIKE ?', "%#{or_search}%", "%#{or_search}%") if keyword && summoner_name.present? }
   scope :summoner_name_like, ->(summoner_name) { where('summoner_name LIKE ?', "%#{summoner_name}%") if summoner_name.present? }
   scope :keyword_like, ->(keyword) { where('body LIKE ?', "%#{keyword}%") if keyword.present? }
   scope :game_type_like, ->(game_type) { joins(:game_types).where(game_types: { id: game_type }) if game_type[1].present? }

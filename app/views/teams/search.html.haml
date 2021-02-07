@@ -5,8 +5,7 @@
     %h6= "#{@summoner_name}を含む投稿"
   - if @keyword.present?
     %h6= "#{@keyword}を含む投稿"
-  - if @keyword && @summoner_name.present?
-    %h6= "#{@or_search}を含む投稿"
+
 - if @teams.present?
   .teams
     = render 'teams', teams: @teams
