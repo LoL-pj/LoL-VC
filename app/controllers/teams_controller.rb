@@ -27,13 +27,17 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.profile_image = @team.profile_img(@team.summoner_name)
-    @team.rank_range = @team.rank_rng(@team.summoner_name)
-    if @team.summoner_name.present?
-      @team.save
-      redirect_to @team, notice: '投稿しました'
+    if @team.unknown_summoner_name?
+      redirect_to new_team_path, alert: '実在するサモナー名を入力してください'
     else
-      redirect_to new_team_path, alert: 'SummonerNameを入力してください'
+      @team.profile_image = @team.profile_img(@team.summoner_name)
+      @team.rank_range = @team.rank_rng(@team.summoner_name)
+      if @team.summoner_name.present?
+        @team.save
+        redirect_to @team, notice: '投稿しました'
+      else
+        redirect_to new_team_path, alert: 'SummonerNameを入力してください'
+      end
     end
   end
 

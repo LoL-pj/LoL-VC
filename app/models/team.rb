@@ -75,4 +75,12 @@ class Team < ApplicationRecord
       league_data[0]['tier']
     end
   end
+
+  def unknown_summoner_name?
+    uri = Addressable::URI.parse("https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{API_KEY}")  
+    return_data = Net::HTTP.get(uri)
+    summoner_data = JSON.parse(return_data)
+    return true if summoner_data['status'].present?
+  end
+
 end
