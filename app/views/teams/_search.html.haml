@@ -1,6 +1,11 @@
 .search-form
   = form_with scope: :search, url: search_teams_path, method: :get, local: true do |f|
     .field
+      = f.label t('.summoner_name'), class: 'item-name'
+      .block
+        = f.text_field :summoner_name
+
+    .field
       = f.label t('.keyword'), class: 'item-name'
       .block
         = f.text_field :keyword
