@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+        "*": ["node_modules/*", "app/javascript/*"]
+    },
+    "sourceMap": true,
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "node_modules",
+    "vendor",
+    "public"
+  ],
+  "compileOnSave": false
+}

@@ -6,10 +6,14 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
-    "turbolinks": "^5.2.0"
+    "react_ujs": "^2.6.1",
+    "ts-loader": "^8.0.17",
+    "turbolinks": "^5.2.0",
+    "typescript": "^4.1.5"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^6.1.0",
     "webpack-dev-server": "^3.10.3"
   }
 }
