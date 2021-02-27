@@ -78,8 +78,5 @@
 
             .card-action
               .waves-effect.waves-light.btn-small
-                .material-icons.right launch
-                = link_to(t('.opgg'), "https://jp.op.gg/summoner/userName=#{team.summoner_name}")
-              .waves-effect.waves-light.btn-small
                 = link_to(t('.edit'), edit_team_path(team))
 = paginate teams
