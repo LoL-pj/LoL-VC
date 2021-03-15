@@ -10,7 +10,7 @@
             .team-header-man
               .summoner_name
                 %br/
-                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/11.1.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/11.5.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
                 .user_name
                   %i.material-icons person
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
@@ -26,7 +26,7 @@
             .team-header-woman
               .summoner_name
                 %br/
-                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/11.1.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/11.5.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
                 .user_name
                   %i.material-icons person
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
@@ -42,7 +42,7 @@
             .team-header-unknown
               .summoner_name
                 %br/
-                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/11.1.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
+                %img.circle.responsive-img{ src: "http://ddragon.leagueoflegends.com/cdn/11.5.1/img/profileicon/#{team.profile_image}.png", alt: "profile_img"}
                 .user_name
                   %i.material-icons person
                   %a{ href: "https://jp.op.gg/summoner/userName=#{team.summoner_name}" } #{ team.summoner_name }
@@ -77,9 +77,6 @@
                 = team.updated_at.strftime("%F/%R")
 
             .card-action
-              .waves-effect.waves-light.btn-small
-                .material-icons.right launch
-                = link_to(t('.opgg'), "https://jp.op.gg/summoner/userName=#{team.summoner_name}")
               .waves-effect.waves-light.btn-small
                 = link_to(t('.edit'), edit_team_path(team))
 = paginate teams
