@@ -44,6 +44,8 @@ CreateとMigrationを同時に行う場合
 ### DB Seed
 `docker-compose run web bundle exec rails db:seed`
 
+## Update Gem
+`docker-compose run --rm web bundle install`
 
 ## Makefileを使う場合
 
