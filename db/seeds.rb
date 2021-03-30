@@ -29,3 +29,6 @@ lanes = ['top', 'mid', 'jg', 'adc', 'support']
 lanes.each do |lane|
   Lane.create(name: lane)
 end
+
+Post.create!(title: 'test post 1', body: 'miow!')
+Post.create!(title: 'test post 2', body: 'miow! miow!')
