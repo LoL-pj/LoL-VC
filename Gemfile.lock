@@ -269,6 +269,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -344,6 +347,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   sass-rails (>= 6)
+  seed-fu
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
