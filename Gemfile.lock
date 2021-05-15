@@ -153,7 +153,9 @@ GEM
     materialize-sass (1.0.0)
       autoprefixer-rails (>= 6.0.3)
     method_source (1.0.0)
-    mimemagic (0.3.4)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.0)
@@ -221,7 +223,7 @@ GEM
       railties (>= 3.2)
       tilt
     regexp_parser (1.7.0)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec-core (3.10.0)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.0)
